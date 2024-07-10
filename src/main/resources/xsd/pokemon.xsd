@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+           xmlns:tns="http://www.jspapps.com/test/pokemon_service/domain/pokemon"
+           targetNamespace="http://www.jspapps.com/test/pokemon_service/domain/pokemon"
+           elementFormDefault="qualified">
+
+    <xsd:element name="PokemonListCommandRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="limit" type="xsd:int"/>
+                <xsd:element name="offset" type="xsd:int"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+
+    <xsd:element name="PokemonListQueryResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="pokemonDetailList" type="tns:PokemonDetail" maxOccurs="unbounded"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+
+    <xsd:complexType name="PokemonDetail">
+        <xsd:sequence>
+            <xsd:element name="name" type="xsd:string"/>
+            <xsd:element name="url" type="xsd:string"/>
+        </xsd:sequence>
+    </xsd:complexType>
+
+</xsd:schema>
